@@ -1,9 +1,60 @@
-<!-- BEGIN:nextjs-agent-rules -->
+# Agent Instructions
 
-# This is NOT the Next.js you know
+This repository uses a vendor-neutral engineering instruction system for Claude Code, GitHub Copilot, Devin, and other AI coding agents.
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+## Source of Truth
 
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+- Repository-wide rules: `.agents/rules/`
+- Task-specific workflows: `.agents/skills/`
 
-<!-- END:nextjs-agent-rules -->
+Rules define how code must be written.
+Skills define how a type of task should be executed.
+
+## Core Principles
+
+1. Inspect before modifying.
+2. Search before creating.
+3. Reuse before abstracting.
+4. Prefer existing project conventions over personal preference.
+5. Make the smallest coherent change required.
+6. Do not introduce new architecture silently.
+7. Do not install dependencies unless necessary.
+8. Do not bypass TypeScript, linting, tests, or validation.
+9. Do not modify unrelated code.
+10. Fix root causes rather than symptoms.
+
+## Rules
+
+- `.agents/rules/architecture.md`
+- `.agents/rules/coding-style.md`
+- `.agents/rules/naming-conventions.md`
+- `.agents/rules/component-rules.md`
+- `.agents/rules/typescript-rules.md`
+- `.agents/rules/nextjs-rules.md`
+- `.agents/rules/data-fetching.md`
+- `.agents/rules/forms-validation.md`
+- `.agents/rules/error-handling.md`
+- `.agents/rules/testing-rules.md`
+- `.agents/rules/security.md`
+- `.agents/rules/git-conventions.md`
+- `.agents/rules/anti-patterns.md`
+
+## Skills
+
+- `.agents/skills/create-feature/SKILL.md`
+- `.agents/skills/create-component/SKILL.md`
+- `.agents/skills/api-integration/SKILL.md`
+- `.agents/skills/create-form/SKILL.md`
+- `.agents/skills/refactor/SKILL.md`
+- `.agents/skills/bug-fix/SKILL.md`
+- `.agents/skills/code-review/SKILL.md`
+
+## Before Any Task
+
+Inspect the relevant parts of the repository, including existing source files, package configuration, TypeScript configuration, linting rules, formatting rules, tests, and nearby implementation patterns.
+
+Existing repository-specific conventions take precedence over generic examples in these documents unless an explicit migration is requested.
+
+## Git Safety
+
+Do not commit, push, force-push, reset, rebase, rewrite history, or delete branches unless explicitly requested.
